@@ -1,0 +1,213 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url('./assets/Quicksand-Bold.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 15% 8%;
+    --foreground: 220 10% 90%;
+
+    --card: 220 15% 10%;
+    --card-foreground: 220 10% 90%;
+
+    --popover: 220 15% 12%;
+    --popover-foreground: 220 10% 90%;
+
+    --primary: 240 100% 78%;
+    --primary-glow: 262 100% 64%;
+    --primary-foreground: 240 30% 10%;
+
+    --secondary: 220 15% 14%;
+    --secondary-foreground: 220 10% 85%;
+
+    --muted: 220 12% 18%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 240 100% 78%;
+    --accent-foreground: 240 30% 10%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 12% 16%;
+    --input: 220 15% 14%;
+    --ring: 240 100% 78%;
+
+    --radius: 0.5rem;
+
+    --success: 142 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 80% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    --sidebar-background: 220 15% 9%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 240 100% 78%;
+    --sidebar-primary-foreground: 240 30% 10%;
+    --sidebar-accent: 240 90% 68%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 12% 14%;
+    --sidebar-ring: 250 60% 55%;
+
+    --chart-1: 240 100% 78%;
+    --chart-2: 280 60% 55%;
+    --chart-3: 200 60% 55%;
+    --chart-4: 142 60% 40%;
+    --chart-5: 220 10% 40%;
+
+    --font-sans: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    user-select: none;
+  }
+
+  input, textarea, [contenteditable] {
+    user-select: text;
+  }
+
+  body {
+    @apply text-foreground font-sans antialiased;
+    font-size: 13px;
+    background: transparent;
+  }
+
+  /* Text selection — match the theme accent */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 3px;
+    transition: background-color 180ms ease-in-out;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground) / 0.3);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  .desktop-window {
+    @apply border border-border bg-card overflow-hidden;
+    box-shadow: 0 25px 60px -15px hsl(0 0% 0% / 0.6);
+  }
+
+  .desktop-titlebar {
+    @apply h-11 flex items-center justify-between pl-1.5 pr-4 border-b border-border;
+    background: hsl(var(--secondary));
+  }
+
+  /* Radix tooltip popper wrapper — make fully non-interactive */
+  [data-radix-popper-content-wrapper]:has([data-tooltip-noninteractive]) {
+    pointer-events: none !important;
+  }
+
+  .brand-wordmark {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--primary)) 35%,
+      hsl(var(--primary-glow)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .setting-row {
+    @apply flex items-center justify-between py-2.5 px-3 rounded-lg transition-colors;
+  }
+
+  .setting-row:hover {
+    background: hsl(var(--muted) / 0.4);
+  }
+
+  .section-label {
+    font-size: 0.625rem;
+    @apply uppercase tracking-[0.15em] font-medium mb-2 px-1;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .nav-item {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all cursor-pointer;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .nav-item:hover {
+    color: hsl(var(--foreground));
+    background: hsl(var(--muted) / 0.3);
+  }
+
+  .nav-item.active {
+    color: hsl(var(--foreground));
+    background: hsl(var(--secondary));
+  }
+
+  .badge-pill {
+    font-size: 0.625rem;
+    @apply font-medium px-2 py-0.5 rounded-full;
+  }
+}
+
+/* ── Accessibility utilities ──────────────────────────────────────────────── */
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
+}
+
+html.compact .setting-row {
+  @apply py-1.5;
+}
+
+html.compact .nav-item {
+  @apply py-1.5;
+}
+
+html.compact .space-y-5 > * + * {
+  margin-top: 0.75rem !important;
+}
+
+html.compact .space-y-4 > * + * {
+  margin-top: 0.625rem !important;
+}
+
+/* ── Arbitrary px text classes → rem so they scale with html font-size ────── */
+/* 0.5625rem = 9px @ 16px base */
+.text-\[9px\]   { font-size: 0.5625rem; }
+/* 0.625rem  = 10px @ 16px base */
+.text-\[10px\]  { font-size: 0.625rem; }
+/* 0.6875rem = 11px @ 16px base */
+.text-\[11px\]  { font-size: 0.6875rem; }
+/* 0.75rem   = 12px @ 16px base  (same as text-xs) */
+.text-\[12px\]  { font-size: 0.75rem; }
