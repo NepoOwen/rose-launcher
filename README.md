@@ -8,13 +8,6 @@ Rose Launcher manages Glyph/Trion accounts, keeps their login sessions alive, la
 
 > **Disclaimer:** Rose Launcher is an independent, fan-made project. It is **not affiliated with, endorsed by, or sponsored by gamigo group, Trion Worlds, or Glyph**. Trove, Glyph, and all related trademarks are property of their respective owners.
 
-## Screenshots
-
-![Account list](.github/screenshots/accounts.png)
-![About](.github/screenshots/about.png)
-![Empty account list](.github/screenshots/accounts-empty.png)
-![Theme customization](.github/screenshots/theme.png)
-
 ## Features
 
 - **Multi-account management** - add, group (drag & drop, Discord-style categories), search, and switch between Glyph accounts
@@ -26,6 +19,13 @@ Rose Launcher manages Glyph/Trion accounts, keeps their login sessions alive, la
 - **Themeable UI** - pick a color preset or build a fully custom theme with a built-in color picker
 - **Accessibility** - adjustable UI zoom, reduce-motion, and compact layout options
 - **In-app find** - quick find-on-page search (F3), since there's no browser chrome to Ctrl+F in
+
+## Screenshots
+
+![Account list](.github/screenshots/accounts.png)
+![About](.github/screenshots/about.png)
+![Empty account list](.github/screenshots/accounts-empty.png)
+![Theme customization](.github/screenshots/theme.png)
 
 ## Getting started
 
