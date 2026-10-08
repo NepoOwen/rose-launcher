@@ -1,0 +1,44 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Rose Launcher",
+  "version": "0.1.0",
+  "identifier": "com.rose.launcher",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:8080",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Rose Launcher",
+        "width": 960,
+        "height": 620,
+        "minWidth": 480,
+        "minHeight": 400,
+        "resizable": true,
+        "fullscreen": false,
+        "center": true,
+        "decorations": false,
+        "transparent": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "copyright": "Copyright © 2026 Rose Launcher",
+    "shortDescription": "A lightweight, fully local Trove launcher.",
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}

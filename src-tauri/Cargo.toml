@@ -1,0 +1,40 @@
+[package]
+name = "Rose"
+version = "0.1.0"
+description = "A lightweight, fully local Trove launcher."
+authors = ["Rose Launcher"]
+license = "Copyright © 2026 Rose Launcher"
+repository = ""
+edition = "2021"
+rust-version = "1.77.2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.5.3", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+log = "0.4"
+tauri = { version = "2.11.0", features = [] }
+tauri-plugin-log = "2"
+tauri-plugin-single-instance = "2"
+sysinfo = "0.30"
+reqwest = { version = "0.12", features = ["json", "blocking", "stream"] }
+base64 = "0.22"
+tokio = { version = "1", features = ["full"] }
+futures-util = "0.3"
+dirs = "5.0"
+rand = "0.8"
+ntapi = "0.4"
+tauri-plugin-dialog = "2.7"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["winnt", "processthreadsapi", "memoryapi", "handleapi", "winbase", "errhandlingapi", "ntdef", "ntstatus", "impl-default", "wow64apiset", "tlhelp32", "shellapi", "winuser", "synchapi", "winerror", "debugapi", "libloaderapi", "windef", "minwinbase", "namedpipeapi", "fileapi"] }
+webview2-com = "0.38"
+winreg = "0.52"
