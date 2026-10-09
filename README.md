@@ -22,9 +22,9 @@ Rose Launcher manages Glyph/Trion accounts, keeps their login sessions alive, la
 
 ## Screenshots
 
+![Empty account list](.github/screenshots/accounts-empty.png)
 ![Account list](.github/screenshots/accounts.png)
 ![About](.github/screenshots/about.png)
-![Empty account list](.github/screenshots/accounts-empty.png)
 ![Theme customization](.github/screenshots/theme.png)
 
 ## Getting started
